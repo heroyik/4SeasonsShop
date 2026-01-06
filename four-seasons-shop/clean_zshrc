@@ -1,0 +1,7 @@
+# Basic Zsh Configuration
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+setopt CORRECT
+
+# Prompt
+PS1='%n@%m:%~%# '

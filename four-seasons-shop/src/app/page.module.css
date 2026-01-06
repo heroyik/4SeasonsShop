@@ -1,0 +1,387 @@
+/* AR Overlay */
+.arOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeArBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 1001;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.mainWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  transition: background-color 0.8s ease-in-out;
+}
+
+.uiContainer {
+  position: relative;
+  z-index: 10;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass to 3D scene where empty */
+}
+
+/* Make content clickable again */
+.heroContent,
+.selectorWrapper {
+  pointer-events: auto;
+}
+
+.heroContent {
+  padding-top: var(--header-height);
+  max-width: 600px;
+}
+
+.tagline {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gray-900);
+  display: block;
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 8rem; /* Larger */
+  line-height: 0.85; /* Tighter */
+  margin-bottom: 8px;
+  letter-spacing: -0.04em;
+  /* color comes from inline style */
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 4.5rem;
+  font-weight: 200; /* Lighter */
+  line-height: 1;
+  color: var(--color-black);
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-gray-900);
+  margin-bottom: 48px;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+.priceTag {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  border-radius: 2px; /* Sharper, more editorial */
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.secondaryBtn {
+  padding: 18px 40px;
+  border-radius: 2px;
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.secondaryBtn:hover {
+  background: var(--color-black);
+  color: white;
+}
+
+/* Selector Panel - Desktop Default */
+.selectorWrapper {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.selectorLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  color: var(--color-gray-900);
+  opacity: 0.6;
+}
+
+.selectorGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seasonBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  min-width: 240px;
+  border: 1px solid transparent;
+}
+
+.seasonBtn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateX(4px);
+}
+
+.seasonBtn.active {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transform: translateX(8px);
+}
+
+.colorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.seasonBtn.active .colorDot {
+  transform: scale(1.5);
+}
+
+.seasonName {
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-family: var(--font-serif);
+}
+
+.activeRing {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+/* =========================================
+   Mobile Overrides (Placed at bottom!) 
+   ========================================= */
+@media (max-width: 768px) {
+  .uiContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    padding-top: 80px; /* Space for header */
+    height: 100dvh; /* Use dynamic viewport height */
+  }
+
+  .heroContent {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; /* Take available top space */
+    justify-content: flex-start;
+    overflow: hidden; /* Prevent scroll */
+  }
+
+  /* Target the Motion Div to make it full height and split content */
+  .heroContent > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically in the space */
+  }
+
+  .tagline {
+    margin-bottom: 16px;
+    font-size: 0.75rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  /* Show Description on mobile, but push it to bottom */
+  .description {
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 90%;
+    margin-top: 24px; /* Give some space */
+    margin-bottom: 16px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+
+  .priceTag {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px; /* Space above selector */
+    width: 100%;
+    justify-content: center;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 12px 24px; /* Compact buttons */
+    font-size: 0.8rem;
+    border-radius: 2px;
+  }
+
+  /* Selector at the bottom, transparent */
+  .selectorWrapper {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    padding: 0;
+    margin-top: auto;
+    box-shadow: none; /* Ensure no shadow */
+  }
+
+  .selectorLabel {
+    display: none;
+  }
+
+  .selectorGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    flex-direction: row;
+  }
+
+  .seasonBtn {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 4px;
+    background: rgba(255, 255, 255, 0.4); /* More transparent */
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .seasonBtn:hover {
+    transform: none;
+  }
+
+  .seasonBtn.active {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .seasonName {
+    font-size: 0.7rem; /* Tiny text */
+    font-weight: 600;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+  }
+
+  .colorDot {
+    width: 8px;
+    height: 8px;
+    margin: 0 auto;
+  }
+
+  .activeRing {
+    border-radius: 8px;
+  }
+}
