@@ -27,6 +27,8 @@ useGLTF.preload('/summer.glb');
 useGLTF.preload('/autumn.glb');
 useGLTF.preload('/winter.glb');
 
+import Box from './Box';
+
 export default function SeasonalModel({ season }) {
   // Map season name to file
   const modelFiles = {
@@ -39,7 +41,7 @@ export default function SeasonalModel({ season }) {
   const url = modelFiles[season.toLowerCase()] || '/spring.glb';
 
   return (
-    <Suspense fallback={<Html center>Loading...</Html>}>
+    <Suspense fallback={<Box scale={0.5} />}>
       <Model url={url} scale={2.5} position={[0, -2, 0]} />
     </Suspense>
   );
