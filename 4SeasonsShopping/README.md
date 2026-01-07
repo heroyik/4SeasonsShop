@@ -1,4 +1,5 @@
 # 4SEASONS - Premium 3D Concept Store
+![Deploy to GitHub Pages](https://github.com/heroyik/4SeasonsShopping/actions/workflows/deploy.yml/badge.svg)
 
 A high-end shopping experience built with modern web technologies, featuring interactive 3D product visualization and seasonal themes.
 
