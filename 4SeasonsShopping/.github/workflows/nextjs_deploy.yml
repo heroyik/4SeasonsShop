@@ -1,4 +1,4 @@
-name: Deploy Next.js Site
+name: Deploy Site
 # Triggered update to register workflow
 
 on:
