@@ -15,6 +15,7 @@ A high-end shopping experience built with modern web technologies, featuring int
 ## ✨ Key Features
 
 - **Interactive 3D Scene**: Real-time rendering of high-quality seasonal products.
+- **Components Snapshot & Video**: Capture high-resolution images and record videos of the 3D models directly from the viewer.
 - **Seamless Seasonal Transitions**: Dynamic environment and lighting shifts based on selected styles (Spring, Summer, Autumn, Winter).
 - **Augmented Reality (AR)**: View products in your real-world space via mobile AR.
 - **Optimized for Performance**: Utilizes React 19 stability improvements and Three.js low-power optimizations for smooth delivery across devices.
