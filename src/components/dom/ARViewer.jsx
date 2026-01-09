@@ -56,11 +56,11 @@ const ARViewer = ({ modelSrc, poster }) => {
     }
 
     try {
+      // Remove constraints that force tab capture. We need the whole screen (system compositor)
+      // to see the camera feed on mobile AR.
       const stream = await navigator.mediaDevices.getDisplayMedia({
-        video: { displaySurface: 'browser' },
-        audio: false,
-        selfBrowserSurface: 'include', // Hint to prioritize current tab
-        preferCurrentTab: true, // Hint to prioritize current tab
+        video: true,
+        audio: false
       });
 
       // Handle user stopping the stream via browser UI
