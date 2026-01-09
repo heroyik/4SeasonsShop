@@ -33,6 +33,8 @@ const ARViewer = ({ modelSrc, poster }) => {
         poster={poster}
         ar
         ar-modes="scene-viewer quick-look webxr"
+        ar-scale="fixed"
+        disable-zoom
         camera-controls
         auto-rotate
         shadow-intensity="1"
