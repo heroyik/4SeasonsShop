@@ -47,7 +47,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  pointer-events: none; /* Let clicks pass to 3D scene where empty */
+  pointer-events: none;
+  /* Let clicks pass to 3D scene where empty */
 }
 
 /* Make content clickable again */
@@ -78,8 +79,10 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: 8rem; /* Larger */
-  line-height: 0.85; /* Tighter */
+  font-size: 8rem;
+  /* Larger */
+  line-height: 0.85;
+  /* Tighter */
   margin-bottom: 8px;
   letter-spacing: -0.04em;
   /* color comes from inline style */
@@ -88,7 +91,8 @@
 .subtitle {
   font-family: var(--font-sans);
   font-size: 4.5rem;
-  font-weight: 200; /* Lighter */
+  font-weight: 200;
+  /* Lighter */
   line-height: 1;
   color: var(--color-black);
   margin-bottom: 40px;
@@ -124,7 +128,8 @@
   align-items: center;
   gap: 12px;
   padding: 18px 40px;
-  border-radius: 2px; /* Sharper, more editorial */
+  border-radius: 2px;
+  /* Sharper, more editorial */
   color: white;
   font-weight: 500;
   font-size: 0.9rem;
@@ -245,10 +250,10 @@
   .uiContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 24px;
-    padding-top: 80px; /* Space for header */
-    height: 100dvh; /* Use dynamic viewport height */
+    justify-content: center;
+    /* Center vertically */
+    padding: 0 24px;
+    height: 100dvh;
   }
 
   .heroContent {
@@ -259,19 +264,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1; /* Take available top space */
-    justify-content: flex-start;
-    overflow: hidden; /* Prevent scroll */
+    justify-content: center;
+    min-height: 60vh;
+    /* Ensure it takes up enough central space */
+    overflow: hidden;
   }
 
   /* Target the Motion Div to make it full height and split content */
-  .heroContent > div {
+  .heroContent>div {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center content vertically in the space */
+    justify-content: center;
+    /* Center content vertically in the space */
   }
 
   .tagline {
@@ -297,7 +304,8 @@
     font-size: 0.9rem;
     line-height: 1.4;
     max-width: 90%;
-    margin-top: 24px; /* Give some space */
+    margin-top: 24px;
+    /* Give some space */
     margin-bottom: 16px;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     font-weight: 500;
@@ -312,31 +320,37 @@
   .actions {
     display: flex;
     gap: 12px;
-    margin-bottom: 16px; /* Space above selector */
+    margin-bottom: 16px;
+    /* Space above selector */
     width: 100%;
     justify-content: center;
   }
 
   .primaryBtn,
   .secondaryBtn {
-    padding: 12px 24px; /* Compact buttons */
+    padding: 12px 24px;
+    /* Compact buttons */
     font-size: 0.8rem;
     border-radius: 2px;
   }
 
   /* Selector at the bottom, transparent */
   .selectorWrapper {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
+    position: fixed;
+    bottom: 24px !important;
+    top: auto !important;
+    left: 24px;
+    right: 24px;
+    transform: none !important;
+    width: calc(100% - 48px);
     background: transparent;
     backdrop-filter: none;
     border: none;
     padding: 0;
-    margin-top: auto;
-    box-shadow: none; /* Ensure no shadow */
+    margin-top: 0;
+    box-shadow: none;
+    z-index: 100;
+    /* High z-index to stay above everything */
   }
 
   .selectorLabel {
@@ -356,7 +370,8 @@
     flex-direction: column;
     gap: 8px;
     padding: 12px 4px;
-    background: rgba(255, 255, 255, 0.4); /* More transparent */
+    background: rgba(255, 255, 255, 0.4);
+    /* More transparent */
     backdrop-filter: blur(8px);
     border-radius: 8px;
     justify-content: center;
@@ -375,7 +390,8 @@
   }
 
   .seasonName {
-    font-size: 0.7rem; /* Tiny text */
+    font-size: 0.7rem;
+    /* Tiny text */
     font-weight: 600;
     font-family: var(--font-sans);
     text-transform: uppercase;

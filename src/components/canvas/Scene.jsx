@@ -21,11 +21,10 @@ export default function Scene({ season }) {
         gl.setClearColor('#e3f2fd', 0);
       }}
       style={{
-        width: '100%',
-        height: '100vh',
         position: 'fixed',
-        top: 0,
-        left: 0,
+        inset: 0,
+        width: '100%',
+        height: '100%',
         zIndex: 1,
         pointerEvents: 'auto',
       }}

@@ -22,7 +22,7 @@ function Model({ url, scale = 1, ...props }) {
       floatIntensity={0.5}
     >
       <group ref={groupRef} {...props}>
-        <Center top>
+        <Center>
           <primitive
             object={scene}
             scale={scale}

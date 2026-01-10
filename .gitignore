@@ -15,14 +15,26 @@
 
 # misc
 .DS_Store
+Thumbs.db
+desktop.ini
 *.pem
+*.key
+auth.json
 
-# debug
+# IDE and tools
+.vscode/
+.idea/
+.antigravity/
+
+# debug and logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 ts-debug.log*
+.cache/
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -31,3 +43,6 @@ ts-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large files
+*.blend
